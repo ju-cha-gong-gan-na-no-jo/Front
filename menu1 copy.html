@@ -1,0 +1,984 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+       <!-- 상단바 -->
+       <style>
+
+        header {
+        z-index: 1;
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        height: 135px;
+        background-image: url(img/sb.png);
+        background-size: cover;
+        font-weight: bold;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        }
+
+        h1, p {
+        margin: 0;
+        }
+
+        main {
+        padding: 1rem;
+        height: 100%;
+        }
+
+
+
+        body, html {
+        height: 100%;
+        }
+
+        * {
+        box-sizing: border-box;
+        }
+    </style>
+<!-- 검색창 -->
+<style>
+  .green_window {
+
+      display: inline-block;
+      width: 250px; height: 30px;
+      border: 1px solid #fff;
+      border-radius: 15px;
+      background: white;
+
+  }
+  .input_text {
+      float: right;
+      width: 180px; height: 18px;
+      margin: 6px 0 0 9px;
+      border: 0;
+      line-height: 21px;
+      font-weight: bold;
+      font-size: 16px;
+      outline: none;
+  }
+  .search-bar {
+    margin-right: 10px;
+    float: right;
+    width: 30px;
+    height: 27px;
+    border-radius: 5px;
+    background-color: #fff;
+    border: solid 0px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1;
+    opacity: 1;
+  }
+  .search-bar__input {
+    width: 50px;
+  }
+
+  /* 이건 머임? */
+  </style>
+
+  <!-- JAVASCRIPT -->
+  <script type="text/javascript">
+  function enterSearch() {
+      if(event.keyCode == 13){
+          myFunction();  // 실행할 이벤트
+      }
+  }
+  function myFunction() {
+      var x = document.getElementById("text").value;
+      window.location.href = "http://cybertramp.net/search/"+x;
+  }
+  </script>
+
+  <!-- 위 메뉴들 -->
+  <style>
+  .menuu{
+    cursor: pointer;
+    color: #fff;
+    font-family: 'GmarketSansMedium';
+    font-size:10pt;
+    margin: auto;
+    text-align: center;
+  }
+
+
+
+  </style>
+  <script src="./js/jquery-3.1.1.min.js"></script>
+<script type="text/javascript">
+
+    function myModal(){
+        $('#myModal').show();
+    }
+
+    // jQuery(document).ready(function() {
+    //         $('#myModal').show();
+    // });
+    //팝업 Close 기능
+    function close_pop(flag) {
+        $('#myModal').hide();
+    };
+
+
+</script>
+    <!-- 2 -->
+
+        <!-- 지도 -->
+        <style>
+            body {
+            margin: 0;
+            }
+            .container {
+              z-index: 2;
+              width: 100%;
+              height: 45vh;
+              margin: 0;
+
+            }
+          </style>
+
+
+
+      <!-- 2 -->
+      <style>
+          @font-face {
+              font-family: 'GmarketSansMedium';
+              src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2001@1.1/GmarketSansMedium.woff') format('woff');
+              font-weight: normal;
+              font-style: normal;
+          }
+          @font-face {
+            font-family: 'GmarketSansLight';
+            src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2001@1.1/GmarketSansLight.woff') format('woff');
+            font-weight: normal;
+            font-style: normal;
+        }
+
+        </style>
+        <style>
+
+          .box{
+
+            width: 280px;
+            height: 380px;
+            background-color: #fff;
+            box-shadow:2px 2px 5px rgb(199, 199, 199);
+
+          }
+          .immmg{
+
+            width: 280px;
+            height: 270px;
+          }
+          .ttext{
+            margin-top: 10px;
+            font-family: 'GmarketSansMedium';
+            font-size: 13px;
+            color: #000;
+            margin-left: 15px;
+
+          }
+          .ttext2{
+            margin-top: 7px;
+            font-family: 'GmarketSansMedium';
+            font-size: 5px;
+            color: #ccc;
+            margin-left: 15px;
+            font-weight: lighter;
+
+          }
+
+
+        </style>
+
+
+        <style>
+          body {
+          margin: 0;
+        }
+
+      </style>
+
+
+
+
+          <!-- 메뉴 -->
+          <style>
+              *{
+              margin:0; padding:0;
+              font-family: 'GmarketSansMedium';
+              font-size:11px;
+              line-height:1.3;
+              }
+              ul{list-style:none;}
+
+              .tabmenu{
+              max-width:100%;
+              margin-left: 0 auto;
+              position:relative;
+              }
+              .tabmenu ul li{
+              display:  inline-block;
+              width:33.33%;
+              float:left;
+              text-align:center;
+
+              line-height:40px;
+              }
+              .tabmenu label{
+              display:block;
+              width:100%;
+              height:40px;
+              line-height:40px;
+              }
+              .tabmenu input{display:none;}
+              .tabCon{
+              display:none;
+              text-align:left;
+
+              position:absolute;
+              left:0; top:40px;
+              box-sizing: border-box;
+
+              }
+              .tabmenu input:checked ~ label{
+                  font-family: 'GmarketSansMedium';
+                  font-size: 5px;
+                  color: #e84684;
+                  border-radius: 15px;
+                  border : 2px solid #e84684;
+
+              }
+              .tabmenu input:checked ~ .tabCon{
+              display:block;
+              }
+
+          </style>
+
+        <!-- 팝업 -->
+        <script src="https://code.jquery.com/jquery-latest.js"></script>
+
+        <style>
+            /* The Modal (background) */
+            .modal {
+                display: none; /* Hidden by default */
+                position: fixed; /* Stay in place */
+                z-index: 1; /* Sit on top */
+                left: 0;
+                top: 0;
+                width: 100%; /* Full width */
+                height: 100%; /* Full height */
+                overflow: auto; /* Enable scroll if needed */
+                background-color: rgb(0,0,0); /* Fallback color */
+                background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+            }
+
+            /* Modal Content/Box */
+            .modal-content {
+                box-shadow:5px 5px 10px rgb(133, 133, 133);
+                border-radius: 5px;
+                background-color: #ffffff;
+                margin: 15% auto; /* 15% from the top and centered */
+                padding: 50px;
+                width: 35%; /* Could be more or less, depending on screen size */
+            }
+
+        </style>
+
+
+
+
+
+
+
+
+
+
+<style>
+
+
+/* 노말라이즈 */
+ul, li {
+margin:0;
+padding:0;
+list-style:none;
+}
+
+a {
+color:inherit;
+text-decoration:none;
+}
+
+/* 라이브러리 */
+.con {
+
+margin:0 auto;
+}
+
+.row::after {
+content:"";
+display:block;
+clear:both;
+}
+
+.cell {
+float:left;
+box-sizing:border-box;
+}
+
+.cell-right {
+float:right;
+box-sizing:border-box;
+}
+
+.block {
+display:block;
+}
+
+
+
+.relative {
+position:relative;
+}
+
+/* 커스텀 */
+.con {
+width:700px;
+}
+
+/* 탑바 시작 */
+.top-bar {
+margin-top:30px;
+}
+
+/* 탑바 - 메뉴 박스 1 시작 */
+.top-bar > .menu-box-1 > ul > li:not(.logo-cell) {
+width:calc((100% - 216px) / 6);
+}
+
+.top-bar > .menu-box-1 > ul > li:not(.logo-cell) > a {
+background-color:#ffffff;
+padding:13px 0;
+color:rgb(0, 0, 0);
+font-family: 'GmarketSansMedium';
+          font-size:15px;
+text-align:center;
+}
+
+.top-bar > .menu-box-1 > ul > li:not(.logo-cell):hover > a {
+font-family: 'GmarketSansMedium';
+              font-size: 15px;
+              color: #e84684;
+              border-radius: 15px;
+              border : 2px solid #e84684;
+}
+
+.top-bar > .menu-box-1 > ul > li.logo-cell > a {
+margin-bottom:-9px;
+position:relative;
+z-index:1;
+}
+
+/* 탑바 - 서브메뉴배경 시작 */
+
+/* 탑바 - 서브메뉴배경의 래퍼(wrapper) */
+.top-bar > .sub-menu-bg > div {
+position:absolute;
+top:0;
+left:0;
+width:100%;
+overflow:hidden;
+height:0;
+transition:height 0.3s;
+}
+
+/* 탑바 - 서브메뉴배경 */
+.top-bar > .sub-menu-bg > div > div {
+position:absolute;
+top:0;
+left:10px;
+width:400px;
+height:500px;
+background-color: #ffffffdc;
+background-repeat:no-repeat;
+background-position:center;
+
+transform:translateY(-100%);
+transition:transform 0.3s;
+}
+
+
+.top-bar > .sub-menu-bg > div > div::after {
+left:auto;
+right:-10px;
+transform:rotateY(180deg);
+}
+
+.top-bar:hover > .sub-menu-bg > div > div {
+transform:translateY(0);
+}
+
+.top-bar:hover > .sub-menu-bg > div {
+height:470px;
+}
+
+/* 탑바 - 서브메뉴 - 시작 */
+.top-bar > .menu-box-1 > ul > li:first-child > div {
+    width: 200px;
+margin-left:10px;
+}
+
+.top-bar > .menu-box-1 > ul > li:last-child > div {
+    width: 200px;
+margin-right:10px;
+}
+
+.top-bar > .menu-box-1 > ul > li > div {
+    width: 200px;
+z-index:1;
+}
+
+.top-bar > .menu-box-1 > ul > li > div > div {
+    width: 200px;
+position:absolute;
+top:0;
+left:0;
+width:100%;
+height:0;
+overflow:hidden;
+transition:height 0.3s;
+}
+
+.top-bar:hover > .menu-box-1 > ul > li > div > div {
+    width: 200px;
+height:470px;
+}
+
+.top-bar > .menu-box-1 > ul > li > div > div > ul {
+    width: 200px;
+height:470px;
+transform:translateY(-100%);
+transition:transform 0.3s;
+}
+
+.top-bar:hover > .menu-box-1 > ul > li > div > div > ul {
+    width: 200px;
+transform:translateY(0);
+}
+
+.top-bar > .menu-box-1 > ul > li > div > div > ul > li > a {
+color:rgb(0, 0, 0);
+padding:8px 8px;
+white-space:nowrap;
+font-family: 'GmarketSansMedium';
+font-size:15px;
+overflow-x:hidden;
+text-overflow:ellipsis;
+}
+
+.top-bar > .menu-box-1 > ul > li > div > div > ul > li:hover > a {
+font-family: 'GmarketSansMedium';
+font-size:15px;
+background-color:#ffffff;
+color: #ccc;;
+text-decoration:underline;
+}
+
+/* 탑바 - 메뉴 박스 1 끝 */
+/* 탑바 끝 */
+</style>
+
+
+
+
+
+
+
+
+</head>
+<body>
+    <br>
+    <div>
+        <header><nav style="width: 1500px;">
+            <div style="float: left;width: 33%;margin-top: 30px;">
+                <!-- <a style="margin-left: 160px; font-family: 'GmarketSansMedium'; font-size:10pt; color: #fff;" onclick="window.open('aaa1.html')">Log out</a> -->
+                <a style="margin-left: 160px; font-family: 'GmarketSansMedium'; font-size:10pt; color: #fff;" onclick="window.open('login1.html')">Log in</a>
+            </div>
+            <div style="float: left; text-align: center; width: 33%;">
+                <img style="margin-left: 40px;" src="img/logo2.png" onclick="window.open('aaa1.html')" alt="logo" width="155">
+            </div>
+            <div style="float: left; width: 33%;">
+                <span style="float: right; margin-right: 135px; margin-top: 20px;" class='green_window'>
+                <button type="button" class='search-bar' value="검색" onclick="myFunction()"><img src="img/search.png" width="25"></button>
+                <input id=text type="text" class='input_text' name="search" onkeydown="enterSearch()"/>
+                </span>
+            </div>
+
+
+          <br><br><br><br><br><br>
+
+          <div  class="menuu" style="margin-right: 590px; width: 300px;">
+            <a style="color: #fff;" onclick="window.open('user1.html')">MY PAGE</a>
+            &nbsp;
+            &nbsp;
+            <a style="color: #fff;" onclick="window.open('menu1.html')">ALL</a>
+            &nbsp;
+            &nbsp;
+            <a style="color: #fff;">ABOUT</a>
+          </div>
+        </nav></header>
+    </div>
+<br><br><br><br><br><br><br><br><br><br>
+
+<div id="myModal" class="modal">
+
+
+    <!-- Modal content -->
+    <div class="modal-content" style="padding-top: 20px;padding-right: 20px;padding-bottom: 20px;padding-left: 20px;width: 800px;height: 500px;">
+        <div style="margin-right: 15px; cursor:pointer; background-color: #ffffff00; text-align: right;padding-bottom: 10px; padding-top: 10px;" onClick="close_pop();">
+            <span class="pop_bt" style="font-family: 'GmarketSansMedium'; color: #000; font-size:13pt; " >
+                 X
+            </span>
+        </div>
+            <img style="box-shadow:5px 5px 10px rgb(139, 139, 139); margin-left: 50px; width: 300px;height: 400px; float: left;" src="img/test.png">
+            <br><br><br>
+              <p style="margin-left: 450px; text-align: left;"><span style="font-size: 14pt;"><b><span style="font-family: 'GmarketSansMedium'; color: #000; font-size:17pt; ">제목</span></b></span></p><br>
+              <p style="margin-left: 450px; text-align: left; line-height: 1.5;"><span style="font-family: 'GmarketSansLight'; color: rgb(59, 59, 59); font-size:10pt; ">0000/00/00~0000/00/00</span></p><br>
+              <p style="margin-left: 450px; text-align: left; line-height: 1.5;"><b><span style="font-family: 'GmarketSansLight'; color: #000; font-size:10pt; ">기관</span></b></p><br><br>
+              <p style="margin-left: 450px; text-align: left; line-height: 0.5;"><span style="font-family: 'GmarketSansLight'; color: #000; font-size:1pt; "><br /></span></p>
+              <p style="margin-left: 450px; text-align: left; line-height: 1.5;"><span style="font-family: 'GmarketSansLight'; color: #000; font-weight: lighter; font-size:9pt; ">아아아아아아아아아아아아아아아아아아아아아아아아<br>아아아아아아아아아아아아아아아아아아아아아아아아<br>아아아아아아아아아아아아아아아아아아아아아아아아<br>아아아아아아아아아아아아아아아아아아아아아아아아<br>아아아아아아아아아아아아아아아아아아아아아아아아<br>아아아아아아아아아아아아아아아아아아아아아아아아<br></span></p>
+
+              <p><br /></p>
+    </div>
+  </div>
+
+
+
+      <div class="tabmenu" >
+        <ul>
+          <li id="tab1" class="btnCon"style="margin-left: 200px; width: 100px;"> <input type="radio" checked name="tabmenu" id="tabmenu1">
+            <label style="width: 100px; height: 40px; " for="tabmenu1">AROUND</label>
+
+            <div class="tabCon">
+
+                <img src="img/around.png" width="100%" >
+
+                <!-- 지도  -->
+                <div style="position: relative;">
+                  <br><br><br><br>
+                    <div id="map" class="container" ></div>
+
+                    <script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=51932f9950a117f6e98b2981e6899ef9"></script>
+                    <script>
+                    var mapContainer = document.getElementById('map'), // 지도를 표시할 div
+                        mapOption = {
+                            center: new kakao.maps.LatLng(33.450701, 126.570667), // 지도의 중심좌표
+                            level: 2 // 지도의 확대 레벨
+                        };
+
+                    var map = new kakao.maps.Map(mapContainer, mapOption); // 지도를 생성합니다
+
+                        // 마커를 표시할 위치와 title 객체 배열입니다
+                        var positions = [
+                            {
+                                title: '내 집',
+                                latlng: new kakao.maps.LatLng(37.385211, 126.976180)
+                            },
+                            {
+                                title: '평촌',
+                                latlng: new kakao.maps.LatLng(37.394236784626884, 126.96373800651735)
+                            },
+
+                        ];
+
+                        // 마커 이미지의 이미지 주소입니다
+                        var imageSrc = "https://t1.daumcdn.net/localimg/localimages/07/mapapidoc/markerStar.png";
+
+                        for (var i = 0; i < positions.length; i ++) {
+
+                            // 마커 이미지의 이미지 크기 입니다
+                            var imageSize = new kakao.maps.Size(24, 35);
+
+                            // 마커 이미지를 생성합니다
+                            var markerImage = new kakao.maps.MarkerImage(imageSrc, imageSize);
+
+                            // 마커를 생성합니다
+                            var marker = new kakao.maps.Marker({
+                                map: map, // 마커를 표시할 지도
+                                position: positions[i].latlng, // 마커를 표시할 위치
+                                title : positions[i].title, // 마커의 타이틀, 마커에 마우스를 올리면 타이틀이 표시됩니다
+                                image : markerImage // 마커 이미지
+                            });
+                        }
+
+
+
+
+                        // 내 위치 받아오기
+                        // HTML5의 geolocation으로 사용할 수 있는지 확인합니다
+                        if (navigator.geolocation) {
+
+                            // GeoLocation을 이용해서 접속 위치를 얻어옵니다
+                            navigator.geolocation.getCurrentPosition(function(position) {
+
+                                var lat = position.coords.latitude, // 위도
+                                    lon = position.coords.longitude; // 경도
+
+                                var locPosition = new kakao.maps.LatLng(lat, lon), // 마커가 표시될 위치를 geolocation으로 얻어온 좌표로 생성합니다
+                                    message = '<div style="padding:5px;">여기에 계신가요?!</div>'; // 인포윈도우에 표시될 내용입니다
+
+                                // 마커와 인포윈도우를 표시합니다
+                                displayMarker(locPosition, message);
+
+                            });
+
+                        } else { // HTML5의 GeoLocation을 사용할 수 없을때 마커 표시 위치와 인포윈도우 내용을 설정합니다
+
+                            var locPosition = new kakao.maps.LatLng(33.450701, 126.570667),
+                                message = 'geolocation을 사용할수 없어요..'
+
+                            displayMarker(locPosition, message);
+                        }
+
+                        // 지도에 마커와 인포윈도우를 표시하는 함수입니다
+                        function displayMarker(locPosition, message) {
+
+                            // 마커를 생성합니다
+                            var marker = new kakao.maps.Marker({
+                                map: map,
+                                position: locPosition
+                            });
+
+                            var iwContent = message, // 인포윈도우에 표시할 내용
+                                iwRemoveable = true;
+
+                            // 인포윈도우를 생성합니다
+                            var infowindow = new kakao.maps.InfoWindow({
+                                content : iwContent,
+                                removable : iwRemoveable
+                            });
+
+                            // 인포윈도우를 마커위에 표시합니다
+                            infowindow.open(map, marker);
+
+                            // 지도 중심좌표를 접속위치로 변경합니다
+                            map.setCenter(locPosition);
+                        }
+                        </script>
+                </div>
+
+            <br><br><br><br><br><br><br><br><br>  <div class="top-bar con">
+
+
+
+                <nav class="menu-box-1">
+                    <ul class="row" >
+                        <li class="cell">
+                            <a href="#" class="block" >서울</a>
+                            <div class="relative"><!-- 서브메뉴를 위한 유령의 집 -->
+                                <div><!-- overflow:hidden; 때문에 존재한다. -->
+                                    <ul>
+                                        <li><a class="block" href="#">종로구</a></li>
+                                        <li><a class="block" href="#">종로구</a></li>
+                                        <li><a class="block" href="#">종로구</a></li>
+                                        <li><a class="block" href="#">종로구</a></li>
+                                        <li><a class="block" href="#">종로구</a></li>
+                                        <li><a class="block" href="#">종로구</a></li>
+                                        <li><a class="block" href="#">종로구</a></li>
+                                        <li><a class="block" href="#">종로구</a></li>
+                                        <li><a class="block" href="#">종로구</a></li>
+
+
+                                    </ul>
+                                </div>
+                            </div>
+                        </li>
+                        <li class="cell">
+                            <a href="#" class="block">부산</a>
+                            <div class="relative">
+                                <div>
+                                    <ul>
+                                        <li><a class="block" href="#">종로구</a></li>
+                                        <li><a class="block" href="#">종로구</a></li>
+                                        <li><a class="block" href="#">종로구</a></li>
+                                        <li><a class="block" href="#">종로구</a></li>
+                                        <li><a class="block" href="#">종로구</a></li>
+                                        <li><a class="block" href="#">종로구</a></li>
+                                        <li><a class="block" href="#">종로구</a></li>
+                                        <li><a class="block" href="#">종로구</a></li>
+                                        <li><a class="block" href="#">종로구</a></li>
+
+                                    </ul>
+                                </div>
+                            </div>
+                        </li>
+
+
+
+                    </ul>
+                </nav>
+                <!-- 유령의 집, 단순한 기준점, 높이 : 항상 0 -->
+                <div class="sub-menu-bg relative">
+                    <!-- 서브메뉴배경 래퍼, 존재이유 : overflow:hidden;, 평소 높이 : 0, 활성화 높이 : 470px -->
+                    <div>
+                        <!-- 서브메뉴배경, 높이 : 항상 470px, 평소 transform:translateY(-100%), 활성화 transform:translateY(0) -->
+                        <div></div>
+                    </div>
+                </div>
+            </div>
+
+
+
+
+            <br><br><br><br><br>
+            <!-- 네모들 -->
+                <div>
+                    <div style="height: 420px; width: 1170px; display: block; margin: 0 auto;">
+                    <div onclick="myModal()" class="box" style="float: left; " >
+                        <div><img class="immmg" src="img/test.png"></div>
+                        <div class="ttext" >여긴제목 </div>
+                        <div class="ttext2" >날짜</div>
+                </div>
+                    <div onclick="myModal()" class="box" style="float: left; margin-left: 15px;">
+                        <div><img class="immmg" src="img/test.png"></div>
+                        <div class="ttext" >여긴제목 </div>
+                        <div class="ttext2" >날짜</div>
+                </div>
+                    <div onclick="myModal()" class="box" style="float: left; margin-left: 15px;">
+                        <div><img class="immmg" src="img/test.png"></div>
+                        <div class="ttext" >여긴제목 </div>
+                        <div class="ttext2" >날짜</div>
+                </div>
+                    <div onclick="myModal()" class="box" style="float: left; margin-left: 15px;">
+                        <div><img class="immmg" src="img/test.png"></div>
+                        <div class="ttext" >여긴제목 </div>
+                        <div class="ttext2" >날짜</div>
+                </div>
+                </div>
+                    <div style="height: 420px; width: 1170px; display: block; margin: 0 auto;">
+                    <div onclick="myModal()" class="box" style="float: left; ">
+                        <div><img class="immmg" src="img/test.png"></div>
+                        <div class="ttext" >여긴제목 </div>
+                        <div class="text2" >날짜</div>
+                    </div>
+                    <div onclick="myModal()" class="box" style="float: left; margin-left: 15px;">
+                        <div><img class="immmg" src="img/test.png"></div>
+                        <div class="ttext" >여긴제목 </div>
+                        <div class="ttext2" >날짜</div>
+                    </div>
+                    <div onclick="myModal()" class="box" style="float: left; margin-left: 15px;">
+                        <div><img class="immmg" src="img/test.png"></div>
+                        <div class="ttext" >여긴제목 </div>
+                        <div class="ttext2" >날짜</div>
+                    </div>
+                    <div onclick="myModal()" class="box" style="float: left; margin-left: 15px;">
+                        <div><img class="immmg" src="img/test.png"></div>
+                        <div class="ttext" >여긴제목 </div>
+                        <div class="ttext2" >날짜</div>
+                    </div>
+                    </div>
+                </div>
+                <div style="height: 420px; width: 1170px; display: block; margin: 0 auto;">
+                    <div onclick="myModal()" class="box" style="float: left; ">
+                        <div><img class="immmg" src="img/test.png"></div>
+                        <div class="ttext" >여긴제목 </div>
+                        <div class="ttext2" >날짜</div>
+                    </div>
+                    <div onclick="myModal()" class="box" style="float: left; margin-left: 15px;">
+                        <div><img class="immmg" src="img/test.png"></div>
+                        <div class="ttext" >여긴제목 </div>
+                        <div class="ttext2" >날짜</div>
+                    </div>
+                    <div onclick="myModal()" class="box" style="float: left; margin-left: 15px;">
+                        <div><img class="immmg" src="img/test.png"></div>
+                        <div class="ttext" >여긴제목 </div>
+                        <div class="ttext2" >날짜</div>
+                    </div>
+                    <div onclick="myModal()" class="box" style="float: left; margin-left: 15px;">
+                        <div><img class="immmg" src="img/test.png"></div>
+                        <div class="ttext" >여긴제목 </div>
+                        <div class="ttext2" >날짜</div>
+                    </div>
+                    </div>
+
+
+
+
+            </li>
+            <li id="tab2" class="btnCon" style="width: 100px;"><input type="radio" name="tabmenu" id="tabmenu2">
+                <label style="width: 100px; height: 40px;" for="tabmenu2">STATE</label>
+                <div class="tabCon" >
+
+                    <img src="img/state.png" width="100%" >
+
+
+                <br><br><br><br><br>
+                <!-- 네모들 -->
+                <div>
+                    <div style="height: 420px; width: 1170px; display: block; margin: 0 auto;">
+                    <div onclick="myModal()" class="box" style="float: left; ">
+                        <div><img class="immmg" src="img/test.png"></div>
+                        <div class="ttext" >여긴제목 </div>
+                        <div class="ttext2" >날짜</div>
+                    </div>
+                    <div onclick="myModal()" class="box" style="float: left; margin-left: 15px;">
+                        <div><img class="immmg" src="img/test.png"></div>
+                        <div class="ttext" >여긴제목 </div>
+                        <div class="ttext2" >날짜</div>
+                    </div>
+                    <div onclick="myModal()" class="box" style="float: left; margin-left: 15px;">
+                        <div><img class="immmg" src="img/test.png"></div>
+                        <div class="ttext" >여긴제목 </div>
+                        <div class="ttext2" >날짜</div>
+                    </div>
+                    <div onclick="myModal()" class="box" style="float: left; margin-left: 15px;">
+                        <div><img class="immmg" src="img/test.png"></div>
+                        <div class="ttext" >여긴제목 </div>
+                        <div class="ttext2" >날짜</div>
+                    </div>
+                    </div>
+                    <div style="height: 420px; width: 1170px; display: block; margin: 0 auto;">
+                        <div onclick="myModal()" class="box" style="float: left; ">
+                            <div><img class="immmg" src="img/test.png"></div>
+                            <div class="ttext" >여긴제목 </div>
+                            <div class="ttext2" >날짜</div>
+                        </div>
+                        <div onclick="myModal()" class="box" style="float: left; margin-left: 15px;">
+                            <div><img class="immmg" src="img/test.png"></div>
+                            <div class="ttext" >여긴제목 </div>
+                            <div class="ttext2" >날짜</div>
+                        </div>
+                        <div onclick="myModal()" class="box" style="float: left; margin-left: 15px;">
+                            <div><img class="immmg" src="img/test.png"></div>
+                            <div class="ttext" >여긴제목 </div>
+                            <div class="ttext2" >날짜</div>
+                        </div>
+                        <div onclick="myModal()" class="box" style="float: left; margin-left: 15px;">
+                            <div><img class="immmg" src="img/test.png"></div>
+                            <div class="ttext" >여긴제목 </div>
+                            <div class="ttext2" >날짜</div>
+                        </div>
+                        </div>
+                    </div>
+                    <div style="height: 420px; width: 1170px; display: block; margin: 0 auto;">
+                        <div onclick="myModal()" class="box" style="float: left; ">
+                            <div><img class="immmg" src="img/test.png"></div>
+                            <div class="ttext" >여긴제목 </div>
+                            <div class="ttext2" >날짜</div>
+                        </div>
+                        <div onclick="myModal()" class="box" style="float: left; margin-left: 15px;">
+                            <div><img class="immmg" src="img/test.png"></div>
+                            <div class="ttext" >여긴제목 </div>
+                            <div class="ttext2" >날짜</div>
+                        </div>
+                        <div onclick="myModal()" class="box" style="float: left; margin-left: 15px;">
+                            <div><img class="immmg" src="img/test.png"></div>
+                            <div class="ttext" >여긴제목 </div>
+                            <div class="ttext2" >날짜</div>
+                        </div>
+                        <div onclick="myModal()" class="box" style="float: left; margin-left: 15px;">
+                            <div><img class="immmg" src="img/test.png"></div>
+                            <div class="ttext" >여긴제목 </div>
+                            <div class="ttext2" >날짜</div>
+                        </div>
+                        </div>
+                </div>
+
+
+            </li>
+                <li id="tab3" class="btnCon" style="width: 100px;"><input type="radio" name="tabmenu" id="tabmenu3">
+                    <label style="width: 100px; height: 40px;" for="tabmenu3">GENRE</label>
+                    <div class="tabCon" >
+
+                        <img src="img/genre.png" width="100%" >
+
+
+                        <br><br><br><br><br>
+                        <!-- 네모들 -->
+                        <div>
+                            <div style="height: 420px; width: 1170px; display: block; margin: 0 auto;">
+                            <div onclick="myModal()" class="box" style="float: left; ">
+                                <div><img class="immmg" src="img/test.png"></div>
+                                <div class="ttext" >여긴제목 </div>
+                                <div class="ttext2" >날짜</div>
+                            </div>
+                            <div onclick="myModal()" class="box" style="float: left; margin-left: 15px;">
+                                <div><img class="immmg" src="img/test.png"></div>
+                                <div class="ttext" >여긴제목 </div>
+                                <div class="ttext2" >날짜</div>
+                            </div>
+                            <div onclick="myModal()" class="box" style="float: left; margin-left: 15px;">
+                                <div><img class="immmg" src="img/test.png"></div>
+                                <div class="ttext" >여긴제목 </div>
+                                <div class="ttext2" >날짜</div>
+                            </div>
+                            <div onclick="myModal()" class="box" style="float: left; margin-left: 15px;">
+                                <div><img class="immmg" src="img/test.png"></div>
+                                <div class="ttext" >여긴제목 </div>
+                                <div class="ttext2" >날짜</div>
+                            </div>
+                            </div>
+                            <div style="height: 420px; width: 1170px; display: block; margin: 0 auto;">
+                                <div onclick="myModal()" class="box" style="float: left; ">
+                                    <div><img class="immmg" src="img/test.png"></div>
+                                    <div class="ttext" >여긴제목 </div>
+                                    <div class="ttext2" >날짜</div>
+                                </div>
+                                <div onclick="myModal()" class="box" style="float: left; margin-left: 15px;">
+                                    <div><img class="immmg" src="img/test.png"></div>
+                                    <div class="ttext" >여긴제목 </div>
+                                    <div class="ttext2" >날짜</div>
+                                </div>
+                                <div onclick="myModal()" class="box" style="float: left; margin-left: 15px;">
+                                    <div><img class="immmg" src="img/test.png"></div>
+                                    <div class="ttext" >여긴제목 </div>
+                                    <div class="ttext2" >날짜</div>
+                                </div>
+                                <div onclick="myModal()" class="box" style="float: left; margin-left: 15px;">
+                                    <div><img class="immmg" src="img/test.png"></div>
+                                    <div class="ttext" >여긴제목 </div>
+                                    <div class="ttext2" >날짜</div>
+                                </div>
+                                </div>
+                            </div>
+                            <div style="height: 420px; width: 1170px; display: block; margin: 0 auto;">
+                                <div onclick="myModal()" class="box" style="float: left; ">
+                                    <div><img class="immmg" src="img/test.png"></div>
+                                    <div class="ttext" >여긴제목 </div>
+                                    <div class="ttext2" >날짜</div>
+                                </div>
+                                <div onclick="myModal()" class="box" style="float: left; margin-left: 15px;">
+                                    <div><img class="immmg" src="img/test.png"></div>
+                                    <div class="ttext" >여긴제목 </div>
+                                    <div class="ttext2" >날짜</div>
+                                </div>
+                                <div onclick="myModal()" class="box" style="float: left; margin-left: 15px;">
+                                    <div><img class="immmg" src="img/test.png"></div>
+                                    <div class="ttext" >여긴제목 </div>
+                                    <div class="ttext2" >날짜</div>
+                                </div>
+                                <div onclick="myModal()" class="box" style="float: left; margin-left: 15px;">
+                                    <div><img class="immmg" src="img/test.png"></div>
+                                    <div class="ttext" >여긴제목 </div>
+                                    <div class="ttext2" >날짜</div>
+                                </div>
+                                </div>
+                        </div>
+                    </div>
+                </li>
+            </ul>
+            </div>
+        </div>
+    </div>
+<br><br><br>
+    <hr  width = "100%" size="1" color = "#ccc" style="display: block; margin: 0 auto;">
+</body>
+
+</html>
