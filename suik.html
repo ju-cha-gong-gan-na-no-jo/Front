@@ -1,0 +1,373 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+
+
+
+
+<script>
+  <script src="https://cdn.amcharts.com/lib/5/index.js"></script>
+<script src="https://cdn.amcharts.com/lib/5/xy.js"></script>
+<script src="https://cdn.amcharts.com/lib/5/themes/Animated.js">
+  </script>
+
+
+
+
+<style>
+  ::-webkit-scrollbar{width: 8px; height: 8px;}
+  ::-webkit-scrollbar-track{background-color: #ffffff;}
+  ::-webkit-scrollbar-thumb{background-color: #D3D3D3; border-radius: 7px;}
+
+
+</style>
+
+<!-- 링크 -->
+<link rel="stylesheet" href="css/menu.css"/>
+<link rel="stylesheet" href="css/button.css"/>
+<link rel="stylesheet" href="css/sb.css"/>
+<link rel="stylesheet" href="css/pubox.css"/>
+<link rel="stylesheet" href="css/pu1.css"/>
+<link rel="stylesheet" href="css/pu.css"/>
+<link rel="stylesheet" href="css/day.css"/>
+<link rel="stylesheet" href="js/day.js"/>
+
+
+
+<!-- 그래프 -->
+<!-- Resources -->
+<script src="https://cdn.amcharts.com/lib/5/index.js"></script>
+<script src="https://cdn.amcharts.com/lib/5/xy.js"></script>
+<script src="https://cdn.amcharts.com/lib/5/themes/Animated.js"></script>
+<link rel="stylesheet" href="js/yuhu.js"/>
+<!-- Chart code -->
+<script>
+am5.ready(function() {
+
+// Create root element
+// https://www.amcharts.com/docs/v5/getting-started/#Root_element
+var root = am5.Root.new("chartdiv");
+
+
+// Set themes
+// https://www.amcharts.com/docs/v5/concepts/themes/
+root.setThemes([
+  am5themes_Animated.new(root)
+]);
+
+
+// Create chart
+// https://www.amcharts.com/docs/v5/charts/xy-chart/
+var chart = root.container.children.push(am5xy.XYChart.new(root, {
+  panX: true,
+  panY: true,
+  wheelX: "panX",
+  wheelY: "zoomX",
+  pinchZoomX:true
+}));
+
+chart.get("colors").set("step", 3);
+
+
+// Add cursor
+// https://www.amcharts.com/docs/v5/charts/xy-chart/cursor/
+var cursor = chart.set("cursor", am5xy.XYCursor.new(root, {}));
+cursor.lineY.set("visible", false);
+
+
+// Create axes
+// https://www.amcharts.com/docs/v5/charts/xy-chart/axes/
+var xAxis = chart.xAxes.push(am5xy.DateAxis.new(root, {
+  maxDeviation: 0.3,
+  baseInterval: {
+    timeUnit: "day",
+    count: 1
+  },
+  renderer: am5xy.AxisRendererX.new(root, {}),
+  tooltip: am5.Tooltip.new(root, {})
+}));
+
+var yAxis = chart.yAxes.push(am5xy.ValueAxis.new(root, {
+  maxDeviation: 0.3,
+  renderer: am5xy.AxisRendererY.new(root, {})
+}));
+
+
+// Add series
+// https://www.amcharts.com/docs/v5/charts/xy-chart/series/
+var series = chart.series.push(am5xy.LineSeries.new(root, {
+  name: "Series 1",
+  xAxis: xAxis,
+  yAxis: yAxis,
+  valueYField: "value1",
+  valueXField: "date",
+  tooltip: am5.Tooltip.new(root, {
+    labelText: "{valueX}: {valueY}\n{previousDate}: {value2}"
+  })
+}));
+
+series.strokes.template.setAll({
+  strokeWidth: 2
+});
+
+series.get("tooltip").get("background").set("fillOpacity", 0.5);
+
+var series2 = chart.series.push(am5xy.LineSeries.new(root, {
+  name: "Series 2",
+  xAxis: xAxis,
+  yAxis: yAxis,
+  valueYField: "value2",
+  valueXField: "date"
+}));
+series2.strokes.template.setAll({
+  strokeDasharray: [2, 2],
+  strokeWidth: 2
+});
+
+// Set date fields
+// https://www.amcharts.com/docs/v5/concepts/data/#Parsing_dates
+root.dateFormatter.setAll({
+  dateFormat: "yyyy-MM-dd",
+  dateFields: ["valueX"]
+});
+
+
+// Set data
+var data = [{
+  date: new Date(2019, 5, 12).getTime(),
+  value1: 50,
+  value2: 48,
+  previousDate: new Date(2019, 5, 5)
+}, {
+  date: new Date(2019, 5, 13).getTime(),
+  value1: 53,
+  value2: 51,
+  previousDate: "2019-05-06"
+}, {
+  date: new Date(2019, 5, 14).getTime(),
+  value1: 56,
+  value2: 58,
+  previousDate: "2019-05-07"
+}, {
+  date: new Date(2019, 5, 15).getTime(),
+  value1: 52,
+  value2: 53,
+  previousDate: "2019-05-08"
+}, {
+  date: new Date(2019, 5, 16).getTime(),
+  value1: 48,
+  value2: 44,
+  previousDate: "2019-05-09"
+}, {
+  date: new Date(2019, 5, 17).getTime(),
+  value1: 47,
+  value2: 42,
+  previousDate: "2019-05-10"
+}, {
+  date: new Date(2019, 5, 18).getTime(),
+  value1: 59,
+  value2: 55,
+  previousDate: "2019-05-11"
+}]
+
+series.data.setAll(data);
+series2.data.setAll(data);
+
+
+// Make stuff animate on load
+// https://www.amcharts.com/docs/v5/concepts/animations/
+series.appear(1000);
+series2.appear(1000);
+chart.appear(1000, 100);
+
+}); // end am5.ready()
+</script>
+
+</head>
+<body style="background-color: #f1f1f1;background-color: #f1f1f1;margin-top: 0px;margin-left: 0px;margin-right: 0px;padding-bottom: 0px;padding-top: 0px;padding-left: 0px;padding-right: 0px;">
+
+<!-- 메뉴 -->
+  <div class="nav"  >
+
+    <ul  class="parent">
+        <img class="image" src="img/마이.png" />
+      <div class="logout">LOGOUT</div>
+    <li style="width: 100px;"><a style="margin-top: 135px; width: 100px; height: 90px;" href="#"> <img class="image-1" src="img/현황.png" />
+        <div class="text-1" style="left: 34px; margin-top: 55px;">주차현황</div></a></li>
+
+    <li style="width: 100px;"><a style="margin-top: 50px; width: 100px; height: 90px;" href="#"> <img class="image-1" src="img/정산.png" />
+        <div class="text-1" style="left: 42px; margin-top: 55px;">정산</div></a></li>
+
+    <li style="width: 100px;"><a style="margin-top: 50px; width: 100px; height: 90px;" href="#"> <img class="image-1" src="img/통계.png" />
+        <div class="text-1" style="left: 42px; margin-top: 55px;">통계</div></a></li>
+
+    <li style="width: 100px;" ><a style="margin-top: 50px; width: 100px; height: 90px;" href="#"> <img class="image-1" src="img/등록.png" />
+        <div class="text-1" style="left: 42px; margin-top: 55px;">등록</div></a>
+
+        <ul class="child">
+            <li><a href="#">Mobile</a></li>
+          <li><a href="#">Desktop</a></li>
+        </ul>
+
+    </li>
+
+    <li style="width: 100px;"><a style="margin-top: 50px; width: 100px; height: 90px;" href="#"> <img class="image-1" src="img/설정.png" />
+        <div class="text-1" style="left: 42px; margin-top: 55px;">설정</div></a></li>
+
+
+    </ul>
+
+  </div>
+
+<!-- 상단 -->
+  <div class="web-1920-2screen">
+        <div class="overlap-group1" >
+          <img class="x2" src="img/2.png" />
+        </div>
+        <!-- <div> -->
+          <!-- <div class="overlap-group"> -->
+
+
+          <div class="x23">
+
+
+          </div>
+
+
+          <!-- 달력 -->
+
+                    <div class="day" style=" float: left; display: inline; margin-left: 240px; margin-top: 120px;">
+                                <label  class="nativeDatePicker">
+                                  <input type="date" name="bday">
+                                  <span class="validity"></span>
+                                </label>
+
+                                <fieldset class="fallbackDatePicker" hidden>
+                                  <legend class="fallbackLabel">Enter your birthday:</legend>
+
+                                  <label>
+                                    Day:
+                                    <select name="day"></select>
+                                  </label>
+
+                                  <label>
+                                    Month:
+                                    <select name="month">
+                                      <option>January</option>
+                                      <option>February</option>
+                                      <option>March</option>
+                                      <option>April</option>
+                                      <option>May</option>
+                                      <option>June</option>
+                                      <option>July</option>
+                                      <option>August</option>
+                                      <option>September</option>
+                                      <option>October</option>
+                                      <option>November</option>
+                                      <option>December</option>
+                                    </select>
+                                  </label>
+
+                                  <label>
+                                    Year:
+                                    <select name="year"></select>
+                                  </label>
+                                </fieldset>
+
+                    </div>
+
+                    <form style=" margin-left: 190px;" >
+
+                      <input onclick="myModal()" style="margin-top: 120px; float: right; display: inline;" class="bu1" type='button' value='삭제'/>
+                    </form>
+
+
+
+          <div class="x185">
+            <!-- HTML -->
+          <div id="chartdiv"></div>
+          </div>
+
+
+          <div class="x189">
+
+          </div>
+
+
+
+
+          <!-- 표 -->
+          <div class="x186" style="margin-top:10px;">
+            <div>
+
+
+              <table id="keywords" cellspacing="0" cellpadding="0">
+                <thead>
+                  <tr>
+                    <th><span>Keywords</span></th>
+                    <th><span>Impressions</span></th>
+                    <th><span>Clicks</span></th>
+                    <th><span>CTR</span></th>
+                    <th><span>Rank</span></th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td class="lalign">silly tshirts</td>
+                    <td>6,000</td>
+                    <td>110</td>
+                    <td>1.8%</td>
+                    <td>22.2</td>
+                  </tr>
+                  <tr>
+                    <td class="lalign">desktop workspace photos</td>
+                    <td>2,200</td>
+                    <td>500</td>
+                    <td>22%</td>
+                    <td>8.9</td>
+                  </tr>
+                  <tr>
+                    <td class="lalign">arrested development quotes</td>
+                    <td>13,500</td>
+                    <td>900</td>
+                    <td>6.7%</td>
+                    <td>12.0</td>
+                  </tr>
+                  <tr>
+                    <td class="lalign">popular web series</td>
+                    <td>8,700</td>
+                    <td>350</td>
+                    <td>4%</td>
+                    <td>7.0</td>
+                  </tr>
+                  <tr>
+                    <td class="lalign">2013 webapps</td>
+                    <td>9,900</td>
+                    <td>460</td>
+                    <td>4.6%</td>
+                    <td>11.5</td>
+                  </tr>
+
+                </tbody>
+              </table>
+             </div>
+
+          </div>
+
+
+
+
+
+
+
+
+
+
+
+</body>
+</html>

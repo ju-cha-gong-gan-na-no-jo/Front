@@ -63,3 +63,37 @@
 
 
 }
+
+/* 선 그래프 박스 */
+.x185 {
+
+  overflow : scroll;
+  background-color: #fff;
+  box-shadow: 0px 2px 5px
+#00000029;
+  font-family: 'SpoqaHanSansNeo-Regular';
+  left: 221px;
+  position: absolute;
+  top: 202px;
+  height: 350px;
+  width: 1200px;
+
+
+}
+
+
+.x186 {
+
+  overflow : scroll;
+  background-color: #fff;
+  box-shadow: 0px 2px 5px
+#00000029;
+  font-family: 'SpoqaHanSansNeo-Regular';
+  left: 221px;
+  position: absolute;
+  top: 652px;
+  height: 350px;
+  width: 1200px;
+
+
+}

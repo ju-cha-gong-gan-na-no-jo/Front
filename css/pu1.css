@@ -1,0 +1,29 @@
+
+
+
+.x189 {
+
+    overflow : scroll;
+    background-color: #fff;
+    box-shadow: 0px 2px 5px
+  #00000029;
+    font-family: 'SpoqaHanSansNeo-Regular';
+
+    position: absolute;
+
+    height: 300px;
+    width: 350px;
+
+
+        margin-left: 1020px;
+
+        margin-top: 178px;
+
+
+  }
+
+  #chartdiv {
+    margin-left: 50px;
+    width: 700px;
+    height: 320px;
+  }
