@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+
+
+
+
+
+
+
+
+
+<style>
+  ::-webkit-scrollbar{width: 8px; height: 8px;}
+  ::-webkit-scrollbar-track{background-color: #ffffff;}
+  ::-webkit-scrollbar-thumb{background-color: #D3D3D3; border-radius: 7px;}
+
+
+</style>
+
+<!-- 링크 -->
+<link rel="stylesheet" href="css/menu2.css"/>
+<link rel="stylesheet" href="css/box.css"/>
+<link rel="stylesheet" href="css/sb.css"/>
+<link rel="stylesheet" href="css/pubox.css"/>
+<link rel="stylesheet" href="css/pu.css"/>
+<link rel="stylesheet" href="css/ct.css"/>
+<link rel="stylesheet" href="css/search.css"/>
+<link rel="stylesheet" href="js/search.js"/>
+<link rel="stylesheet" href="css/button.css"/>
+<link rel="stylesheet" href="js/mo.js"/>
+<link rel="stylesheet" href="css/num.css"/>
+<link rel="stylesheet" href="css/mo.css"/>
+<script src="./js/jquery-3.1.1.min.js"></script>
+<script type="text/javascript">
+  //
+  // function myModal(){
+  //     $('#myModal').show();
+  // }
+
+  function myModal2(){
+      $('#myModal2').show();
+  }
+  //팝업 Close 기능
+  function close_pop2(flag) {
+      $('#myModal2').hide();
+  };
+
+
+</script>
+
+<!-- 팝업 -->
+<script src="https://code.jquery.com/jquery-latest.js"></script>
+
+</head>
+<body style=" background-color: #f1f1f1;background-color: #f1f1f1;margin-top: 0px;margin-left: 0px;margin-right: 0px;padding-bottom: 0px;padding-top: 0px;padding-left: 0px;padding-right: 0px;">
+
+<!-- 메뉴 -->
+  <div class="nav"  >
+
+    <ul  class="parent">
+        <img class="image" src="img/마이.png" />
+      <div class="logout">LOGOUT</div>
+
+    <li style="width: 100px;"><a style="margin-top: 150px; width: 100px; height: 90px;" href="#"> <img class="image-1" src="img/정산.png" />
+        <div class="text-1" style="left: 42px; margin-top: 55px;">정산</div></a></li>
+
+    <li style="width: 100px;"><a style="margin-top: 50px; width: 100px; height: 90px;" href="#"> <img class="image-1" src="img/통계.png" />
+        <div class="text-1" style="left: 42px; margin-top: 55px;">통계</div></a></li>
+
+
+
+
+
+    </ul>
+
+  </div>
+
+<!-- 상단 -->
+  <div class="web-1920-2screen">
+        <div class="overlap-group1" >
+          <img class="x2" src="img/2.png" />
+        </div>
+        <!-- <div> -->
+          <!-- <div class="overlap-group"> -->
+
+
+          <div class="x23">
+
+
+          </div>
+
+
+          <div class="x19"></div>
+
+
+
+          <!-- 차트 -->
+          <div style="left: 650px;" class='wrap'>
+            <div class='container'>
+              <div class="chart doughnut1"><span class="center">8</span></div>
+              <div class="x58"></div>
+          <div class="x59"></div>
+            </div>
+
+            <button style="font-family: SpoqaHanSansNeo-Regular;" onClick=replay()>
+             RESET
+            </button>
+          </div>
+          <script>
+            const chart1 = document.querySelector('.doughnut1');
+
+
+          const makeChart = (percent, classname, color) => {
+            let i = 1;
+            let chartFn = setInterval(function() {
+              if (i < percent) {
+                colorFn(i, classname, color);
+                i++;
+              } else {
+                clearInterval(chartFn);
+              }
+            }, 10);
+          }
+
+          const colorFn = (i, classname, color) => {
+            classname.style.background = "conic-gradient(" + color + " 0% " + i + "%, #dedede " + i + "% 100%)";
+          }
+
+          const replay = () => {
+            makeChart(80, chart1, '#1F3158');
+
+          }
+
+          makeChart(80, chart1, '#1F3158');
+
+              </script>
+
+
+
+
+<!-- 검색 -->
+
+                  <span style="float: left; display: inline;  margin-left: 230px; margin-top: 100px;   display: inline; " class='green_window'>
+                  <button type="button" class='search-bar' value="검색" onclick="myFunction()"><img src="img/search.png" style="width: 30px;   height: 25px;"></button>
+                  <input id="text" type="text" class='input_text' name="search"  onkeydown="enterSearch()" style="z-index: 1;margin-top: -40px;margin-left: 5px;bottom: 20px;"/>
+
+                  </span>
+
+
+
+
+
+
+
+
+          <!-- 표 -->
+          <div class="x18" style="margin-top:30px;">
+            <div>
+
+
+              <table id="keywords" cellspacing="0" cellpadding="0">
+                <thead>
+                  <tr>
+                    <th><span>Keywords</span></th>
+                    <th><span>Impressions</span></th>
+                    <th><span>Clicks</span></th>
+                    <th><span>CTR</span></th>
+                    <th><span>Rank</span></th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td class="lalign">silly tshirts</td>
+                    <td>6,000</td>
+                    <td>110</td>
+                    <td>1.8%</td>
+                    <td>22.2</td>
+                  </tr>
+                  <tr>
+                    <td class="lalign">desktop workspace photos</td>
+                    <td>2,200</td>
+                    <td>500</td>
+                    <td>22%</td>
+                    <td>8.9</td>
+                  </tr>
+                  <tr>
+                    <td class="lalign">arrested development quotes</td>
+                    <td>13,500</td>
+                    <td>900</td>
+                    <td>6.7%</td>
+                    <td>12.0</td>
+                  </tr>
+                  <tr>
+                    <td class="lalign">popular web series</td>
+                    <td>8,700</td>
+                    <td>350</td>
+                    <td>4%</td>
+                    <td>7.0</td>
+                  </tr>
+                  <tr>
+                    <td class="lalign">2013 webapps</td>
+                    <td>9,900</td>
+                    <td>460</td>
+                    <td>4.6%</td>
+                    <td>11.5</td>
+                  </tr>
+
+                </tbody>
+              </table>
+             </div>
+
+          </div>
+          <div id="myModal2" class="modal">
+
+
+              <!-- Modal content -->
+              <div class="modal-content" style="text-align: center; padding-bottom: 20px;padding-left: 20px;width: 600px;height: 500px;">
+
+                  <div style="margin-right: 15px; cursor:pointer; background-color: #ffffff00; text-align: right;padding-bottom: 10px; " onClick="close_pop2();">
+                      <span class="pop_bt" style="font-family: 'GmarketSansMedium'; color: #000; font-size:13pt; " >
+                           X
+                      </span>
+                  </div>
+
+        <br><br><br>
+
+                      <!-- Modal content -->
+        <div>    <img style=" display: block; margin: 10px auto;weight:50px; height:150px;" src="img/2.png" /> </div>
+                  <div>
+                  <br><br><br>
+        <a style="display: inline;  background: linear-gradient(to left, #629ECF, #735B92); -webkit-background-clip: text; -webkit-text-fill-color: transparent; font-size:23px; font-weight: bolder;  font-family:  'GmarketSansMedium';">시간</a>
+                  <br>  <br>  <br><br><br><br>
+                  <a style="font-family:  'GmarketSansMedium'; font-size:15px;">쿠폰 개수 선택: &nbsp;</a>
+                  <form style="display: inline;" name="해당 폼의 이름" action="값을 보낼 주소" method="post">
+                      <input  class="num" type='number' name='userPhoneNumber' />
+                  </form>
+              <br>  <br><br>  <br>
+                  <form  style="display: inline; ">
+                    <input style="margin-top: 20px;" onclick="myModal2();"   class="bu5" type='button' value='확인'/>
+                  </form>
+                  <form  style="display: inline; ">
+                    <input style="margin-top: 20px; margin-left:10px;"  onclick="myModal2();"   class="bu5" type='button' value='취소'/>
+                  </form>
+                </div>
+
+              </div>
+
+
+
+            </div>
+          <form >
+            <input onclick="myModal2()" style="margin-top: 400px; float: left;  margin-left: 575px; " class="bu4" type='button' value='쿠폰'/>
+          </form>
+
+      </div>
+
+
+
+
+</body>
+</html>

@@ -15,16 +15,20 @@
 <link rel="stylesheet" href="js/search.js"/>
 <link rel="stylesheet" href="js/day.js"/>
 <link rel="stylesheet" href="js/mo.js"/>
+<link rel="stylesheet" href="css/num.css"/>
 <script src="./js/jquery-3.1.1.min.js"></script>
 <script type="text/javascript">
+  // 
+  // function myModal(){
+  //     $('#myModal').show();
+  // }
 
-  function myModal(){
-      $('#myModal').show();
+  function myModal2(){
+      $('#myModal2').show();
   }
-
   //팝업 Close 기능
-  function close_pop(flag) {
-      $('#myModal').hide();
+  function close_pop2(flag) {
+      $('#myModal2').hide();
   };
 
 
@@ -46,8 +50,23 @@
                    X
               </span>
           </div>
+          <div  style="display: inline;  margin-right: 15px; cursor:pointer; background-color: #ffffff00; text-align: right;padding-bottom: 10px; " onClick="myModal2();">
+              <span class="pop_bt" style="font-family: 'GmarketSansMedium'; color: #000; font-size:13pt; " >
+                   >
+              </span>
+          </div>
+          <div style="display: inline;  margin-right: 15px; cursor:pointer; background-color: #ffffff00; text-align:left;padding-bottom: 10px; " onClick="myModal2();">
+              <span class="pop_bt" style="font-family: 'GmarketSansMedium'; color: #000; font-size:13pt; " >
+                   <
+              </span>
+          </div>
+
+
+              <!-- Modal content -->
+
+          <div>
           <br><br><br>
-<a style="background: linear-gradient(to left, #629ECF, #735B92); -webkit-background-clip: text; -webkit-text-fill-color: transparent; font-size:23px; font-weight: bolder;  font-family:  'GmarketSansMedium';">입주민 추가</a>
+<a style="display: inline;  background: linear-gradient(to left, #629ECF, #735B92); -webkit-background-clip: text; -webkit-text-fill-color: transparent; font-size:23px; font-weight: bolder;  font-family:  'GmarketSansMedium';">1회 방문객</a>
           <br>  <br>  <br><br><br><br>
           <input class="tt" type="text" name = "UserID" value=""placeholder = "자동차 번호"/>
           <br>  <br>  <br>
@@ -60,13 +79,62 @@
           <input class="tt" type="text" name = "UserID" value=""placeholder = "전화번호"/>
           <br>  <br>  <br>
           <input class="tt" type="text" name = "UserID" value=""placeholder = "비고"/>
+          <br>  <br>  <br>
+          <input class="tt" type="text" name = "UserID" value=""placeholder = "전화번호"/>
+          <br>  <br>  <br>
+          <input class="tt" type="text" name = "UserID" value=""placeholder = "전화번호"/>
       <br>  <br>
-          <form style="display: inline; ">
-            <input style="margin-top: 20px;   " class="bu3" type='button' value='입주민 추가'/>
+          <form  style="display: inline; ">
+            <input style="margin-top: 20px;" onclick="myModal2();"   class="bu3" type='button' value='추가'/>
           </form>
+        </div>
 
       </div>
+
+
+
     </div>
+
+
+    <div id="myModal2" class="modal">
+
+
+        <!-- Modal content -->
+        <div class="modal-content" style="text-align: center; padding-bottom: 20px;padding-left: 20px;width: 600px;height: 500px;">
+
+            <div style="margin-right: 15px; cursor:pointer; background-color: #ffffff00; text-align: right;padding-bottom: 10px; " onClick="close_pop2();">
+                <span class="pop_bt" style="font-family: 'GmarketSansMedium'; color: #000; font-size:13pt; " >
+                     X
+                </span>
+            </div>
+
+<br><br><br>
+
+                <!-- Modal content -->
+<div>    <img style=" display: block; margin: 10px auto;weight:50px; height:150px;" src="img/2.png" /> </div>
+            <div>
+            <br><br><br>
+  <a style="display: inline;  background: linear-gradient(to left, #629ECF, #735B92); -webkit-background-clip: text; -webkit-text-fill-color: transparent; font-size:23px; font-weight: bolder;  font-family:  'GmarketSansMedium';">시간</a>
+            <br>  <br>  <br><br><br><br>
+            <a style="font-family:  'GmarketSansMedium'; font-size:15px;">쿠폰 개수 선택: &nbsp;</a>
+            <form style="display: inline;" name="해당 폼의 이름" action="값을 보낼 주소" method="post">
+                <input  class="num" type='number' name='userPhoneNumber' />
+            </form>
+        <br>  <br><br>  <br>
+            <form  style="display: inline; ">
+              <input style="margin-top: 20px;" onclick="myModal2();"   class="bu5" type='button' value='추가'/>
+            </form>
+            <form  style="display: inline; ">
+              <input style="margin-top: 20px; margin-left:10px;"  onclick="myModal2();"   class="bu5" type='button' value='취소'/>
+            </form>
+          </div>
+
+        </div>
+
+
+
+      </div>
+
 
 
                 <form >
@@ -74,7 +142,7 @@
                 </form>
 
                 <form >
-                  <input  style="margin-top: 620px; float: right; margin-right: 270px; display: inline;" class="bu1" type='button' value='삭제'/>
+                  <input  onclick="myModal2()" style="margin-top: 620px; float: right; margin-right: 270px; display: inline;" class="bu1" type='button' value='삭제'/>
                 </form>
 </body>
 </html>
